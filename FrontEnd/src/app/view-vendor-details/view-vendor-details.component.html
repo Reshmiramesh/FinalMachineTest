@@ -1,0 +1,48 @@
+<br><h1 align="center">Vendor-Contact List</h1><br>
+<div class="container">
+    
+        
+        <button (click)= "Logout()" type="button" style="float:right" class="btn btn-outline-primary">LOGOUT</button>
+        <button (click)= "AddVendor()" type="button" style="float:right" class="btn btn-outline-success">ADD VENDOR</button>&nbsp;
+        <br>
+    <br>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                
+                 <i class="fas fa-search" aria-hidden="true"></i>
+                 <input [(ngModel)] ="search" (ngModelChange)="searchVendor(search)" class="form-control mr-sm-2" type="search" placeholder="Search by: Location/ContactName/Service" aria-label="Search">
+                 <button (click)="searchVendor(search)"  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </nav>
+                  <br> 
+                              <div>
+                                <table class="table" border="1">
+                                    <thead class="text-white">
+                  <tr>
+                      <th>Vendor Id</th>
+                      <th>Vendor Name</th>
+                      <th>Address</th>
+                      <th>Location</th>
+                      <th>Service</th>
+                      <th>Contact Name</th>
+                      <th>Department</th>
+                      <th>Phone</th>
+                      <th>Actions</th>
+                  </tr></thead>
+                  <tbody>
+           
+                    <tr *ngFor="let vendor of vendors">
+                        <td>{{vendor.vId}}</td>
+                        <td>{{vendor.vendorName}}</td>
+                        <td>{{vendor.address}}</td>
+                        <td>{{vendor.location}}</td>
+                        <td>{{vendor.service}}</td>
+                        <td>{{vendor.contactName}}</td>
+                        <td>{{vendor.department}}</td>
+                        <td>{{vendor.phone}}</td>
+                        <td><a (click)="editVendor(vendor.vId)"><img src="assets/edit.png"/></a>
+                            <a (click)="disableVendor(vendor)"><img src="assets/delete.png"/></a></td>
+                  </tr>
+              </tbody>
+              </table>
+          
+          </div>
+    </div>
